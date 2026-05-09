@@ -7,6 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Node
 node_modules
 dist
 dist-ssr
@@ -16,12 +17,23 @@ dist-ssr
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
+# Rust
+src-tauri/target/
+src-tauri/Cargo.lock
 
+# Python
 tagger/venv/
+tagger/__pycache__/
+*.pyc
+
+# Tauri
+src-tauri/gen/
+
+# System
+.DS_Store
