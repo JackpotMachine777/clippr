@@ -15,20 +15,12 @@ pub async fn main() {
 
             app.manage(db);
 
-            let tagger_path = std::env::current_dir()
-                .unwrap()
-                .parent()
-                .unwrap()
-                .join("tagger/main.py");
+            let tagger_path = std::env::var("CLIPPR_TAGGER_PATH")
+                .map(std::path::PathBuf::from)
+                .unwrap_or_else(|_| std::path::PathBuf::from("/usr/share/clippr/tagger/main.py"));
                     
-            let python_path = std::env::current_dir()
-                .unwrap()
-                .parent()
-                .unwrap()
-                .join("tagger/venv/bin/python");
-                    
-            std::process::Command::new(python_path)
-                .arg(tagger_path)
+            std::process::Command::new("python3")
+                .arg(&tagger_path)
                 .spawn()
                 .expect("tagger is broken");
 
