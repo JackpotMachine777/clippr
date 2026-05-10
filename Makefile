@@ -1,5 +1,5 @@
 dev:
-	npm run tauri dev
+	CLIPPR_TAGGER_PATH=./tagger/main.py npm run tauri dev
 
 build:
 	npm run tauri build
@@ -8,7 +8,7 @@ rust:
 	cd src-tauri && cargo build
 
 py:
-	tagger/venv/bin/python tagger/main.py
+	CLIPPR_TAGGER_PATH=./tagger/main.py python3 tagger/main.py
 
 setup:
 	npm install
