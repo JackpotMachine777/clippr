@@ -75,4 +75,4 @@ clippr/
 
 ## 📄 License
 
-MIT
+GPL
